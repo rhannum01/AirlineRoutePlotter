@@ -1,0 +1,93 @@
+AirportID,Name,City,Country,IATA,ICAO,Latitude,Longitude,Altitude,Timezone,DST,Tz,Type,Source
+507,London Heathrow Airport,London,United Kingdom,LHR,EGLL,51.4706,-0.461941,83,0,E,Europe/London,airport,OurAirports
+3448,General Edward Lawrence Logan International Airport,Boston,United States,BOS,KBOS,42.36429977,-71.00520325,20,-5,A,America/New_York,airport,OurAirports
+2890,Luis Munoz Marin International Airport,San Juan,Puerto Rico,SJU,TJSJ,18.43939972,-66.00180054,9,-4,U,America/Puerto_Rico,airport,OurAirports
+3748,Norman Y. Mineta San Jose International Airport,San Jose,United States,SJC,KSJC,37.362598,-121.929001,62,-8,A,America/Los_Angeles,airport,OurAirports
+4069,L.F. Wade International International Airport,Bermuda,Bermuda,BDA,TXKF,32.36399841,-64.67870331,12,-4,A,Atlantic/Bermuda,airport,OurAirports
+1762,Las Américas International Airport,Santo Domingo,Dominican Republic,SDQ,MDSD,18.42970085,-69.66889954,59,-4,U,America/Santo_Domingo,airport,OurAirports
+502,London Gatwick Airport,London,United Kingdom,LGW,EGKK,51.148102,-0.190278,202,0,E,Europe/London,airport,OurAirports
+3797,John F Kennedy International Airport,New York,United States,JFK,KJFK,40.63980103,-73.77890015,13,-5,A,America/New_York,airport,OurAirports
+1386,Paris-Orly Airport,Paris,France,ORY,LFPO,48.7233333,2.3794444,291,1,E,Europe/Paris,airport,OurAirports
+3878,Orlando International Airport,Orlando,United States,MCO,KMCO,28.42939949,-81.30899811,96,-5,A,America/New_York,airport,OurAirports
+1382,Charles de Gaulle International Airport,Paris,France,CDG,LFPG,49.012798,2.55,392,1,E,Europe/Paris,airport,OurAirports
+3752,Philadelphia International Airport,Philadelphia,United States,PHL,KPHL,39.87189865,-75.2410965,36,-5,A,America/New_York,airport,OurAirports
+3484,Los Angeles International Airport,Los Angeles,United States,LAX,KLAX,33.94250107,-118.4079971,125,-8,A,America/Los_Angeles,airport,OurAirports
+2883,Cyril E. King Airport,St. Thomas,Virgin Islands,STT,TIST,18.33729935,-64.9733963,23,-4,U,America/St_Thomas,airport,OurAirports
+3745,Syracuse Hancock International Airport,Syracuse,United States,SYR,KSYR,43.11119843,-76.10630035,421,-5,A,America/New_York,airport,OurAirports
+3825,Bradley International Airport,Windsor Locks,United States,BDL,KBDL,41.93889999,-72.68319702,173,-5,A,America/New_York,airport,OurAirports
+3670,Dallas Fort Worth International Airport,Dallas-Fort Worth,United States,DFW,KDFW,32.896801,-97.038002,607,-6,A,America/Chicago,airport,OurAirports
+3626,Raleigh Durham International Airport,Raleigh-durham,United States,RDU,KRDU,35.87760162,-78.78749847,435,-5,A,America/New_York,airport,OurAirports
+3469,San Francisco International Airport,San Francisco,United States,SFO,KSFO,37.61899948,-122.375,13,-8,A,America/Los_Angeles,airport,OurAirports
+3988,Ministro Pistarini International Airport,Buenos Aires,Argentina,EZE,SAEZ,-34.8222,-58.5358,67,-3,N,America/Buenos_Aires,airport,OurAirports
+2816,Carrasco International /General C L Berisso Airport,Montevideo,Uruguay,MVD,SUMU,-34.838402,-56.0308,105,-3,S,America/Montevideo,airport,OurAirports
+2279,Narita International Airport,Tokyo,Japan,NRT,RJAA,35.76470184,140.3860016,141,9,U,Asia/Tokyo,airport,OurAirports
+2564,Guarulhos - Governador André Franco Montoro International Airport,Sao Paulo,Brazil,GRU,SBGR,-23.43555641,-46.47305679,2459,-3,S,America/Sao_Paulo,airport,OurAirports
+2537,Tancredo Neves International Airport,Belo Horizonte,Brazil,CNF,SBCF,-19.62444305,-43.9719429,2715,-3,S,America/Sao_Paulo,airport,OurAirports
+2560,Rio Galeão – Tom Jobim International Airport,Rio De Janeiro,Brazil,GIG,SBGL,-22.80999947,-43.25055695,28,-3,S,America/Sao_Paulo,airport,OurAirports
+3830,Chicago O'Hare International Airport,Chicago,United States,ORD,KORD,41.9786,-87.9048,672,-6,A,America/Chicago,airport,OurAirports
+3697,La Guardia Airport,New York,United States,LGA,KLGA,40.77719879,-73.87259674,21,-5,A,America/New_York,airport,OurAirports
+3576,Miami International Airport,Miami,United States,MIA,KMIA,25.79319954,-80.29060364,8,-5,A,America/New_York,airport,OurAirports
+3877,McCarran International Airport,Las Vegas,United States,LAS,KLAS,36.08010101,-115.1520004,2181,-8,A,America/Los_Angeles,airport,OurAirports
+2902,Piarco International Airport,Port-of-spain,Trinidad and Tobago,POS,TTPP,10.59539986,-61.33720016,58,-4,U,America/Port_of_Spain,airport,OurAirports
+1892,Monseñor Óscar Arnulfo Romero International Airport,San Salvador,El Salvador,SAL,MSLP,13.4409,-89.055702,101,-6,U,America/El_Salvador,airport,OurAirports
+1780,Sangster International Airport,Montego Bay,Jamaica,MBJ,MKJS,18.50370026,-77.91339874,4,-5,U,America/Jamaica,airport,OurAirports
+2851,Simón Bolívar International Airport,Caracas,Venezuela,CCS,SVMI,10.601194,-66.991222,234,-4,U,America/Caracas,airport,OurAirports
+2895,Queen Beatrix International Airport,Oranjestad,Aruba,AUA,TNCA,12.5014,-70.015198,60,-4,U,America/Aruba,airport,OurAirports
+1871,Tocumen International Airport,Panama City,Panama,PTY,MPTO,9.071359634,-79.38349915,135,-5,U,America/Panama,airport,OurAirports
+3855,Tulsa International Airport,Tulsa,United States,TUL,KTUL,36.19839859,-95.88809967,677,-6,A,America/Chicago,airport,OurAirports
+1772,Ramón Villeda Morales International Airport,San Pedro Sula,Honduras,SAP,MHLM,15.4526,-87.923599,91,-6,U,America/Tegucigalpa,airport,OurAirports
+3494,Newark Liberty International Airport,Newark,United States,EWR,KEWR,40.69250107,-74.16870117,18,-5,A,America/New_York,airport,OurAirports
+2894,Hewanorra International Airport,Hewandorra,Saint Lucia,UVF,TLPL,13.7332,-60.952599,14,-4,U,America/St_Lucia,airport,OurAirports
+1852,Cancún International Airport,Cancun,Mexico,CUN,MMUN,21.03650093,-86.87709808,22,-5,S,America/Cancun,airport,OurAirports
+3863,Will Rogers World Airport,Oklahoma City,United States,OKC,KOKC,35.39310074,-97.60070038,1295,-6,A,America/Chicago,airport,OurAirports
+3728,Daniel K Inouye International Airport,Honolulu,United States,HNL,PHNL,21.32062,-157.924228,13,-10,N,Pacific/Honolulu,airport,OurAirports
+3577,Seattle Tacoma International Airport,Seattle,United States,SEA,KSEA,47.449001,-122.308998,433,-8,A,America/Los_Angeles,airport,OurAirports
+3867,John Wayne Airport-Orange County Airport,Santa Ana,United States,SNA,KSNA,33.67570114,-117.8679962,56,-8,A,America/Los_Angeles,airport,OurAirports
+193,Lester B. Pearson International Airport,Toronto,Canada,YYZ,CYYZ,43.67720032,-79.63059998,569,-5,A,America/Toronto,airport,OurAirports
+3533,Fort Lauderdale Hollywood International Airport,Fort Lauderdale,United States,FLL,KFLL,26.072599,-80.152702,9,-5,A,America/New_York,airport,OurAirports
+3646,Tampa International Airport,Tampa,United States,TPA,KTPA,27.97550011,-82.53320313,26,-5,A,America/New_York,airport,OurAirports
+3645,Detroit Metropolitan Wayne County Airport,Detroit,United States,DTW,KDTW,42.21239853,-83.35340118,645,-5,A,America/New_York,airport,OurAirports
+3731,San Diego International Airport,San Diego,United States,SAN,KSAN,32.73360062,-117.1900024,17,-8,A,America/Los_Angeles,airport,OurAirports
+1824,Licenciado Benito Juarez International Airport,Mexico City,Mexico,MEX,MMMX,19.4363,-99.072098,7316,-6,S,America/Mexico_City,airport,OurAirports
+156,Vancouver International Airport,Vancouver,Canada,YVR,CYVR,49.19390106,-123.1839981,14,-8,A,America/Vancouver,airport,OurAirports
+3520,Ronald Reagan Washington National Airport,Washington,United States,DCA,KDCA,38.8521,-77.037697,15,-5,A,America/New_York,airport,OurAirports
+3550,George Bush Intercontinental Houston Airport,Houston,United States,IAH,KIAH,29.9843998,-95.34140015,97,-6,A,America/Chicago,airport,OurAirports
+3849,Baltimore/Washington International Thurgood Marshall Airport,Baltimore,United States,BWI,KBWI,39.1754,-76.668297,146,-5,A,America/New_York,airport,OurAirports
+3673,Austin Bergstrom International Airport,Austin,United States,AUS,KAUS,30.19449997,-97.66989899,542,-6,A,America/Chicago,airport,OurAirports
+3722,Palm Beach International Airport,West Palm Beach,United States,PBI,KPBI,26.68320084,-80.09559631,19,-5,A,America/New_York,airport,OurAirports
+3682,Hartsfield Jackson Atlanta International Airport,Atlanta,United States,ATL,KATL,33.6367,-84.428101,1026,-5,A,America/New_York,airport,OurAirports
+3861,Louis Armstrong New Orleans International Airport,New Orleans,United States,MSY,KMSY,29.99340057,-90.25800323,4,-6,A,America/Chicago,airport,OurAirports
+3690,Nashville International Airport,Nashville,United States,BNA,KBNA,36.12450027,-86.67819977,599,-6,A,America/Chicago,airport,OurAirports
+3793,Southwest Florida International Airport,Fort Myers,United States,RSW,KRSW,26.53619957,-81.75520325,30,-5,A,America/New_York,airport,OurAirports
+3678,St Louis Lambert International Airport,St. Louis,United States,STL,KSTL,38.748697,-90.370003,618,-6,A,America/Chicago,airport,OurAirports
+3462,Phoenix Sky Harbor International Airport,Phoenix,United States,PHX,KPHX,33.43429947,-112.012001,1135,-7,N,America/Phoenix,airport,OurAirports
+3720,Portland International Airport,Portland,United States,PDX,KPDX,45.58869934,-122.5979996,31,-8,A,America/Los_Angeles,airport,OurAirports
+1840,Los Cabos International Airport,San Jose Del Cabo,Mexico,SJD,MMSD,23.15180016,-109.7210007,374,-7,S,America/Mazatlan,airport,OurAirports
+3807,Reno Tahoe International Airport,Reno,United States,RNO,KRNO,39.49909973,-119.7679977,4415,-8,A,America/Los_Angeles,airport,OurAirports
+3876,Charlotte Douglas International Airport,Charlotte,United States,CLT,KCLT,35.2140007,-80.94309998,748,-5,A,America/New_York,airport,OurAirports
+3751,Denver International Airport,Denver,United States,DEN,KDEN,39.86169815,-104.6729965,5431,-7,A,America/Denver,airport,OurAirports
+146,Montreal / Pierre Elliott Trudeau International Airport,Montreal,Canada,YUL,CYUL,45.47060013,-73.74079895,118,-5,A,America/Toronto,airport,OurAirports
+3621,San Antonio International Airport,San Antonio,United States,SAT,KSAT,29.53370094,-98.46980286,809,-6,A,America/Chicago,airport,OurAirports
+4019,Albuquerque International Sunport,Albuquerque,United States,ABQ,KABQ,35.040199,-106.609001,5355,-7,A,America/Denver,airport,OurAirports
+3734,Ontario International Airport,Ontario,United States,ONT,KONT,34.05599976,-117.6009979,944,-8,A,America/Los_Angeles,airport,OurAirports
+3858,Minneapolis-St Paul International/Wold-Chamberlain Airport,Minneapolis,United States,MSP,KMSP,44.882,-93.221802,841,-6,A,America/Chicago,airport,OurAirports
+3458,Kansas City International Airport,Kansas City,United States,MCI,KMCI,39.2976,-94.713898,1026,-6,A,America/Chicago,airport,OurAirports
+3536,Salt Lake City International Airport,Salt Lake City,United States,SLC,KSLC,40.78839874,-111.9779968,4227,-7,A,America/Denver,airport,OurAirports
+3473,Memphis International Airport,Memphis,United States,MEM,KMEM,35.04240036,-89.97669983,341,-6,A,America/Chicago,airport,OurAirports
+3817,Sacramento International Airport,Sacramento,United States,SMF,KSMF,38.69540024,-121.5910034,27,-8,A,America/Los_Angeles,airport,OurAirports
+3712,Jacksonville International Airport,Jacksonville,United States,JAX,KJAX,30.49410057,-81.68789673,30,-5,A,America/New_York,airport,OurAirports
+3585,Indianapolis International Airport,Indianapolis,United States,IND,KIND,39.7173,-86.294403,797,-5,A,America/New_York,airport,OurAirports
+3636,Tucson International Airport,Tucson,United States,TUS,KTUS,32.11610031,-110.9410019,2643,-7,N,America/Phoenix,airport,OurAirports
+3819,City of Colorado Springs Municipal Airport,Colorado Springs,United States,COS,KCOS,38.805801,-104.700996,6187,-7,A,America/Denver,airport,OurAirports
+3559,El Paso International Airport,El Paso,United States,ELP,KELP,31.80719948,-106.3779984,3959,-7,A,America/Denver,airport,OurAirports
+3822,Snohomish County (Paine Field) Airport,Everett,United States,PAE,KPAE,47.90629959,-122.2819977,606,-8,A,America/Los_Angeles,airport,OurAirports
+1229,Adolfo Suárez Madrid–Barajas Airport,Madrid,Spain,MAD,LEMD,40.471926,-3.56264,1998,1,E,Europe/Madrid,airport,OurAirports
+1218,Barcelona International Airport,Barcelona,Spain,BCN,LEBL,41.2971,2.07846,12,1,E,Europe/Madrid,airport,OurAirports
+1524,Malpensa International Airport,Milano,Italy,MXP,LIMC,45.6306,8.72811,768,1,E,Europe/Rome,airport,OurAirports
+1590,Ben Gurion International Airport,Tel-aviv,Israel,TLV,LLBG,32.01139832,34.88669968,135,2,E,Asia/Jerusalem,airport,OurAirports
+2650,Comodoro Arturo Merino Benítez International Airport,Santiago,Chile,SCL,SCEL,-33.39300156,-70.78579712,1555,-4,S,America/Santiago,airport,OurAirports
+3093,Indira Gandhi International Airport,Delhi,India,DEL,VIDP,28.5665,77.103104,777,5.5,N,Asia/Calcutta,airport,OurAirports
+11051,Hamad International Airport,Doha,Qatar,DOH,OTHH,25.273056,51.608056,13,3,N,backslashN,airport,OurAirports
+1555,Leonardo da Vinci–Fiumicino Airport,Rome,Italy,FCO,LIRF,41.8002778,12.2388889,13,1,E,Europe/Rome,airport,OurAirports
+3941,Eleftherios Venizelos International Airport,Athens,Greece,ATH,LGAV,37.93640137,23.94449997,308,2,E,Europe/Athens,airport,OurAirports
+302,Brussels Airport,Brussels,Belgium,BRU,EBBR,50.90140152,4.48443985,184,1,E,Europe/Brussels,airport,OurAirports
