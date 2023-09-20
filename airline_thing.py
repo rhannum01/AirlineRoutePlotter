@@ -63,10 +63,11 @@ class AirlineData:
         print(self.airports)
         print(self.routes)
 
-        #self._update_map_center(airport_list)
+        self._update_map_center(airport_list)
         self._populate_route_traces(equipment, color)
         self._populate_airport_trace()
 
+        #self.state_sample()
         self.map.show()
     def get_equipment_list(self):
         blacklist = ['300', '319', '320', '321']
@@ -194,6 +195,7 @@ class AirlineData:
 
     def _draw_base_map(self):
         self.map = go.Figure(go.Scattergeo())
+
         self.map.update_layout(go.Layout(
             showlegend = False,
             autosize=True,
@@ -203,11 +205,12 @@ class AirlineData:
            # margin={"r":0,"t":0,"l":0,"b":0},
 
         ))
+
         self.map.update_geos(
-            scope='world',
+            scope='north america',
             resolution=50,
             #projection=dict( type='orthographic' , scale = 1.8),
-            projection=dict( type='equal earth' , scale = 1.8),
+            #projection=dict( type='equal earth' , scale = 1.8),
             #projection=dict( type='orthographic' , scale = 1),
             showland = True,
             showocean = True,
@@ -215,15 +218,26 @@ class AirlineData:
             showlakes = False,
             showsubunits = True,
             showcoastlines = True,
-            showcountries = True,
+            #showcountries = True,
             landcolor = 'rgb(49, 49, 49)',
             countrycolor = 'rgb(90, 90, 90)',
             subunitcolor = 'rgb(90, 90, 90)',
-            subunitwidth = 3,
+            #subunitwidth = 3,
             coastlinecolor = 'rgb(90, 90, 90)',
             oceancolor = 'rgb(29, 29, 29)',
             bgcolor = 'rgb(29, 29, 29)',
         )
+        #self.map.update_layout(height=300, margin={"r":0,"t":0,"l":0,"b":0})
+
+    def state_sample(self):
+        fig = go.Figure(go.Scattergeo())
+        fig.update_geos(
+            visible=False, resolution=50, scope="north america",
+            showcountries=True, countrycolor="Black",
+            showsubunits=True, subunitcolor="Blue"
+        )
+        fig.update_layout(height=300, margin={"r":0,"t":0,"l":0,"b":0})
+        fig.show()
 
     def _populate_airport_trace(self):
         airports = self.airports
@@ -248,9 +262,9 @@ class AirlineData:
             ),
         ))
 
-    def _populate_route_traces(self, equipment, color):
+    def _populate_route_traces(self, equipment, default_color):
         for i in range(len(self.routes)):
-            color = self._select_plane_color(self.routes['Equipment'][i], color)
+            color = self._select_plane_color(self.routes['Equipment'][i], default_color)
             self.map.add_trace(go.Scattergeo(
                 type = 'scattergeo',
                 locationmode = 'ISO-3',
