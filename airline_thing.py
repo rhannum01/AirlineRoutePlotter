@@ -7,6 +7,9 @@ import plotly.offline as py
 import plotly.graph_objs as go
 from matplotlib import colors as mcolors
 
+height = 4000
+width = 4000
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--airports_file", help="airports.csv to use", required=True)
@@ -15,6 +18,9 @@ def main():
     parser.add_argument("-a", "--airports", nargs='+', help="airports to generate data for", required=False)
     parser.add_argument("-r", "--roles", help="role to generate data for (Captain, First Officer)", required=False)
     parser.add_argument("-c", "--color", help="uniform color to use for routes", required=False)
+    parser.add_argument("-s", "--scope", help="world, north america, usa", required=False)
+    parser.add_argument("--center", help="uniform color to use for routes", required=False)
+    parser.add_argument("--generate", help="generate files", action='store_true',required=False)
 
     args = parser.parse_args()
 
@@ -34,8 +40,15 @@ def main():
         args.roles = ['CA','RC']
     elif str(args.roles) == 'First Officer':
         args.roles = ['FO','FB','FC']
-    print(args.color)
-    data.show_map(args.equipment, args.color, args.airports, args.roles)
+
+    if not args.scope:
+        args.scope = 'world'
+
+    if args.generate:
+        data.generate_files()
+    else:
+        data.show_map(args.equipment, args.color, args.airports, args.roles, args.scope, args.center)
+
 
 class AirlineData:
     def __init__(self, airports_file, routes_file, airport_list=None):
@@ -49,26 +62,28 @@ class AirlineData:
         self.airports = pd.DataFrame()
 
         self._import_data()
-        self._draw_base_map()
 
-        #self.map.to_html('./prototype.html')
-    def show_map(self, equipment, color, airport_list, roles):
-        self._filter_routes_by_airport(airport_list)
-        self._filter_routes_by_plane(equipment)
-        self._filter_routes_by_role(roles)
+    def generate_files(self):
+        print("737")
+        self.save_image(['737'], None, None, ['CA','RC','FO','FB','FC'], 'north america', 'usa', './imgs/737.svg')
+        print("757")
+        self.save_image(['757'], None, None, ['CA','RC','FO','FB','FC'], 'north america', 'usa', './imgs/757.svg')
+        print("767")
+        self.save_image(['767'], None, None, ['CA','RC','FO','FB','FC'], 'world', 'JFK', './imgs/767.svg')
+        print("777")
+        self.save_image(['777'], None, None, ['CA','RC','FO','FB','FC'], 'world', 'JFK', './imgs/777.svg')
+        self.save_image(['737', '757', '767', '777'], None, None, ['CA','RC','FO','FB','FC'], 'world', 'JFK', './imgs/all_routes.svg')
+        self.save_image(['737', '757', '767', '777'], None, None, ['CA','RC'], 'world', 'JFK', './imgs/all_routes_captain.svg')
+        self.save_image(['737', '757', '767', '777'], None, None, ['FO','FB','FC'], 'world', 'JFK', './imgs/all_routes_first_officer.svg')
 
-        self._count_airport_visits()
-        self._count_route_frequency()
+    def save_image(self, equipment, color, airport_list, roles, scope, center, filename):
+        self._filter_and_generate(equipment, color, airport_list, roles, scope, center)
+        self.map.write_image(filename, width=width, height=height)
 
-        print(self.airports)
-        print(self.routes)
-
-        self._update_map_center(airport_list)
-        self._populate_route_traces(equipment, color)
-        self._populate_airport_trace()
-
-        #self.state_sample()
+    def show_map(self, equipment, color, airport_list, roles, scope, center):
+        self._filter_and_generate(equipment, color, airport_list, roles, scope, center)
         self.map.show()
+
     def get_equipment_list(self):
         blacklist = ['300', '319', '320', '321']
         equipment = self.routes_raw.groupby(['Equipment']).size().reset_index()
@@ -87,8 +102,25 @@ class AirlineData:
         # get lat/long for each dest airport
         self.routes_raw = pd.merge(self.routes_raw, self.airports_raw[['IATA','Latitude','Longitude']],
                     how='inner', left_on='Destination airport', right_on='IATA', suffixes=('_Orig','_Dest'))
+
+    def _filter_and_generate(self, equipment, color, airport_list, roles, scope, center):
         self.routes_filtered = self.routes_raw
         self.airports_filtered = self.airports_raw
+        self._filter_routes_by_airport(airport_list)
+        self._filter_routes_by_plane(equipment)
+        self._filter_routes_by_role(roles)
+
+        self._count_airport_visits()
+        self._count_route_frequency()
+
+        self._draw_base_map()
+        self._update_map_center(scope, center)
+        self._populate_route_traces(equipment, color)
+        self._populate_airport_trace()
+
+        self.map.write_image('test.svg',width=width, height=height)
+        #print(self.airports.to_string())
+        #print(self.routes)
 
     def _filter_routes_by_airport(self, airport_list):
         if not airport_list:
@@ -112,7 +144,6 @@ class AirlineData:
             return
         routes = pd.DataFrame()
         for role in roles:
-            print(role)
             routes = pd.concat([routes, (self.routes_filtered[self.routes_filtered['Role'].isin([role])])])
         self.routes_filtered = routes.reset_index(drop=True)
 
@@ -131,8 +162,7 @@ class AirlineData:
         # compute total counts
         self.airports['total count'] = self.airports['source count'] + self.airports['dest count']
         self.airports.sort_values(by=['total count'], inplace=True, ascending=False)
-        self.airports = self.airports.loc[self.airports['total count'] > 0.1]
-        print(self.airports)
+        self.airports = self.airports.loc[self.airports['total count'] > 0.1].reset_index()
 
     def _count_route_frequency(self):
         # count number of trips taken with the same src, dest, and equipment
@@ -153,45 +183,41 @@ class AirlineData:
         elif plane == '727':
             color = 'rgb(0, 255, 0)'
         elif plane == '737':
-            color = 'rgb(0, 128, 0)'
+            color = '#697282'
         elif plane == '757':
-            color = 'rgb(0, 255, 255)'
+            color = '#EE2A24'
         elif plane == '767':
-            color = 'rgb(0, 128, 128)'
+            color = '#D90429'
         elif plane == '777':
-            color = 'rgb(0, 0, 255)'
+            color = '#003876'
         elif plane == 'D10':
             color = 'rgb(0, 0, 128)'
         elif plane == 'S80':
             color = 'rgb(255, 0, 255)'
         return color
 
-    def _update_map_center(self, airport_list):
-
-        if not airport_list:
-            return
-        routes = pd.DataFrame()
-        for airport in airport_list:
-            routes = pd.concat([routes, self.airports[self.airports['IATA'].isin([airport])]]).reset_index(drop=True)
-        print(routes)
-
-        lat = 0
-        lon = 0
-        for i in range(len(routes)):
-
-            print(routes['IATA'][i])
-            print(routes['Latitude'][i])
-            print(routes['Longitude'][i])
-            lat = lat + routes['Latitude'][i]
-            lon = lon + routes['Longitude'][i]
-        lat = lat/len(routes)
-        lon = lon/len(routes)
-        print(lat)
-        print(lon)
+    def _update_map_center(self, scope, center):
+        if not center:
+            lon = 0
+        if center == 'usa':
+            lon = -98.5795
+        elif center == 'JFK':
+            lon = -73.778900
+        if scope == 'world':
+            subdiv = False
+            countries = True
+        elif scope == 'north america':
+            subdiv = True
+            countries = True
+        elif scope == 'usa':
+            subdiv = True
+            countries = False
         self.map.update_geos(
-           center=dict(lon=lon, lat=lat),
+            projection_rotation=dict(lon=lon, lat=0, roll=0),
+            scope = scope,
+            showsubunits = subdiv,
+            showcountries = countries,
         )
-
 
     def _draw_base_map(self):
         self.map = go.Figure(go.Scattergeo())
@@ -199,38 +225,33 @@ class AirlineData:
         self.map.update_layout(go.Layout(
             showlegend = False,
             autosize=True,
-            paper_bgcolor = 'rgb(29, 29, 29)',
-            plot_bgcolor = 'rgb(29, 29, 29)',
-           # height=700,
-           # margin={"r":0,"t":0,"l":0,"b":0},
+            height=800,
+            #paper_bgcolor = 'rgb(29, 29, 29)',
+            #plot_bgcolor = 'rgb(29, 29, 29)',
+            #height=700,
+            #margin={"r":0,"t":0,"l":0,"b":0},
 
         ))
-
+        #ocean = '#E6E6E6' #grey
+        ocean = '#9EDAFF' #blue
+        #ocean = '#DAF1FF' #different blue
         self.map.update_geos(
-            scope='north america',
             resolution=50,
-            #projection=dict( type='orthographic' , scale = 1.8),
-            #projection=dict( type='equal earth' , scale = 1.8),
-            #projection=dict( type='orthographic' , scale = 1),
-            showland = True,
+            projection=dict( type='equal earth'),
             showocean = True,
-            visible=False,
-            showlakes = False,
+            oceancolor = ocean,
+            showlakes = True,
+            lakecolor = ocean,
             showsubunits = True,
             showcoastlines = True,
-            #showcountries = True,
-            landcolor = 'rgb(49, 49, 49)',
+            showcountries = True,
             countrycolor = 'rgb(90, 90, 90)',
             subunitcolor = 'rgb(90, 90, 90)',
-            #subunitwidth = 3,
-            coastlinecolor = 'rgb(90, 90, 90)',
-            oceancolor = 'rgb(29, 29, 29)',
-            bgcolor = 'rgb(29, 29, 29)',
         )
-        #self.map.update_layout(height=300, margin={"r":0,"t":0,"l":0,"b":0})
 
     def state_sample(self):
         fig = go.Figure(go.Scattergeo())
+        print("sample town")
         fig.update_geos(
             visible=False, resolution=50, scope="north america",
             showcountries=True, countrycolor="Black",
@@ -252,11 +273,11 @@ class AirlineData:
             mode = 'markers',
             marker = dict(
                 #sizemin=4,
-                size=(self.airports['total count']/max(self.airports['total count']))*30 + 5,
-                color='red',
+                size=(self.airports['total count']/max(self.airports['total count']))*40 + 10,
+                color='rgb(0, 56, 118)',
                 line = dict(
-                    width=1,
-                    color='rgb(0, 0, 0)'
+                    width=0,
+                    color='red'
                 ),
                 opacity = 1,
             ),
@@ -276,7 +297,7 @@ class AirlineData:
                 lat = [self.routes['Latitude_Orig'][i], self.routes['Latitude_Dest'][i]],
                 mode = 'lines',
                 line = dict(
-                    width=max((self.routes['count'][i]/max(self.routes['count']))*5, 0.25),
+                    width=(self.routes['count'][i]/max(self.routes['count']))*7 + 0.75,
                     color=color
                 )
             ))
